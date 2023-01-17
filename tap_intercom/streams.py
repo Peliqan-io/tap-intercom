@@ -435,7 +435,7 @@ class CompanyAttributes(FullTableStream):
     # Sync with activate version
     # As we are preparing the hash of ['id', 'name', 'description'] and using it as the Primary Key and there are chances
     # of field value being updated, thus, on the target side, there will be a redundant entry of the same record.
-    sync_with_version = True
+    sync_with_version = False
 
     def get_records(self, bookmark_datetime=None, is_parent=False) -> Iterator[list]:
         paging = True
@@ -584,7 +584,7 @@ class ContactAttributes(FullTableStream):
     # Sync with activate version
     # As we are preparing the hash of ['id', 'name', 'description'] and using it as the Primary Key and there are chances
     # of field value being updated, thus, on the target side, there will be a redundant entry of the same record.
-    sync_with_version = True
+    sync_with_version = False
 
     def get_records(self, bookmark_datetime=None, is_parent=False) -> Iterator[list]:
         LOGGER.info("Syncing: {}".format(self.tap_stream_id))
