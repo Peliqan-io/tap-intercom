@@ -428,7 +428,7 @@ class CompanyAttributes(FullTableStream):
     Docs: https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-data-attributes
     """
     tap_stream_id = 'company_attributes'
-    key_properties = ['_sdc_record_hash']
+    key_properties = ['id']
     path = 'data_attributes'
     params = {'model': 'company'}
     data_key = 'data'
@@ -577,7 +577,7 @@ class ContactAttributes(FullTableStream):
     Docs: https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-data-attributes
     """
     tap_stream_id = 'contact_attributes'
-    key_properties = ['_sdc_record_hash']
+    key_properties = ['id']
     path = 'data_attributes'
     params = {'model': 'contact'}
     data_key = 'data'
