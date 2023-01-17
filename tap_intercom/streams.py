@@ -428,14 +428,14 @@ class CompanyAttributes(FullTableStream):
     Docs: https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-data-attributes
     """
     tap_stream_id = 'company_attributes'
-    key_properties = ['id']
+    key_properties = ['_sdc_record_hash']
     path = 'data_attributes'
     params = {'model': 'company'}
     data_key = 'data'
     # Sync with activate version
     # As we are preparing the hash of ['id', 'name', 'description'] and using it as the Primary Key and there are chances
     # of field value being updated, thus, on the target side, there will be a redundant entry of the same record.
-    sync_with_version = True
+    sync_with_version = False
 
     def get_records(self, bookmark_datetime=None, is_parent=False) -> Iterator[list]:
         paging = True
@@ -577,14 +577,14 @@ class ContactAttributes(FullTableStream):
     Docs: https://developers.intercom.com/intercom-api-reference/v2.0/reference#list-data-attributes
     """
     tap_stream_id = 'contact_attributes'
-    key_properties = ['id']
+    key_properties = ['_sdc_record_hash']
     path = 'data_attributes'
     params = {'model': 'contact'}
     data_key = 'data'
     # Sync with activate version
     # As we are preparing the hash of ['id', 'name', 'description'] and using it as the Primary Key and there are chances
     # of field value being updated, thus, on the target side, there will be a redundant entry of the same record.
-    sync_with_version = True
+    sync_with_version = False
 
     def get_records(self, bookmark_datetime=None, is_parent=False) -> Iterator[list]:
         LOGGER.info("Syncing: {}".format(self.tap_stream_id))
