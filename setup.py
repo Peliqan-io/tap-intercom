@@ -9,8 +9,8 @@ setup(name='tap-intercom',
       classifiers=['Programming Language :: Python :: 3 :: Only'],
       py_modules=['tap_intercom'],
       install_requires=[
-          'backoff==1.8.0',
-          'requests==2.23.0',
+          'backoff>=2.2.1',
+          'requests>=2.28.0',
           'singer-python @ git+https://github.com/peliqan-io/singer-python@master',
       ],
       entry_points='''
